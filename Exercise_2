@@ -1,0 +1,65 @@
+using UnityEngine;
+using System.Collections;
+
+
+public class ButtonManager : MonoBehaviour {
+
+	//int currentText;
+
+
+	public GUIStyle myGUIStyle;
+	public string currentText = "Dance.";
+	private string buttonLabel = "Cleanse yourself.";
+	private string buttonlabel1 ="Everything is";
+	private string clearMessages="Reset";
+	private string newMessage1 = "Amaaaaaaaaaaaazing";
+	private string newMessage = "ALL NIGHT!!!";
+
+	
+	int x=10;
+	int y=10;
+	int customGui;
+
+	// Use this for initialization
+	void Start () {
+		Debug.Log("make them dance");
+
+	}
+
+	// Update is called once per frame
+	void Update () {
+	}
+
+
+
+	
+	void OnGUI () {
+		//customGui=GUIStyle;
+
+		//GUI.color = Color.red;
+		//GUI.backgroundColor = Color.red;
+	
+		currentText = GUI.TextField(new Rect(100, 150, 200, 20), currentText, myGUIStyle);
+
+
+		if (GUI.Button (new Rect (x+100,y,150,100), buttonLabel)) {
+			currentText = currentText + newMessage + "\n";
+			print ("You clicked the button named "+ buttonLabel + "!");
+
+		}
+
+		if (GUI.Button (new Rect (x+300,y+200, 550, 100), buttonlabel1)){
+			print ("Everything is awful" + buttonlabel1 + "!");
+			buttonlabel1= buttonlabel1 + newMessage1;
+		}
+
+		if (GUI.Button (new Rect (x+400,y+350, 150, 100), clearMessages)){
+			buttonlabel1= "Everything is";
+			currentText = "Dance.";
+		
+
+
+		}
+     
+	}
+}
